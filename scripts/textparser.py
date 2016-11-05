@@ -42,13 +42,13 @@ def GetCommand(text):
         v = inputArray[x]
 
         if v in search:
-            a = ["search", inputArray[x + 1]]
+            a = ["search", " ".join(inputArray[x + 1:])]
             break
         elif v in url:
-            a = ["url", inputArray[x + 1]]
+            a = ["url", " ".join(inputArray[x + 1:])]
             break
         elif v in app:
-            a = ["app", inputArray[x + 1]]
+            a = ["app", " ".join(inputArray[x + 1:])]
             break
         elif v in mouseMove:
             a = ["mouseMove", inputArray[x + 1]]
@@ -62,7 +62,7 @@ def GetCommand(text):
         elif v in mouseMove:
             pass
         elif v in keyboardType:
-            a = ["keyboardType", inputArray[x + 1:]]
+            a = ["keyboardType", " ".join(inputArray[x + 1:])]
             break
         elif v in keyboardHold:
             a = ["keyboardHold", inputArray[x + 1]]

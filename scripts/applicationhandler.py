@@ -1,4 +1,9 @@
-
+import subprocess
 
 def OpenApp(s):
-    pass
+    try:
+        subprocess.call(["open","-a",s])
+    except:
+        print "application open failed"
+        return
+    
