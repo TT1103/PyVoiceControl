@@ -55,16 +55,27 @@ def RunCommand(com):
         keyboardhandler.ReleaseKey(v)
 
 
+
         
+def GetTextHelper():
+    if audioQueue:
+        textQueue.append(VoiceInput.GetText(audioQueue.pop(0)).lower())
+    return
+
+    
 def GetAudioThread():
     while True:
         audioQueue.append(VoiceInput.GetVoice())
 
+    
 def GetTextThread():
-    while True:
-        if audioQueue:
-            textQueue.append(VoiceInput.GetText(audioQueue.pop(0)).lower())
-
+    #while True:
+    #    if audioQueue:
+    #        textQueue.append(VoiceInput.GetText(audioQueue.pop(0)).lower())
+    if audioQueue:
+        threading.Thread(target=GetTextHelper)
+    
+    
 def GetCommandThread():
     while True:
         if textQueue:
@@ -87,6 +98,8 @@ def main():
     b.start()
     c.start()
     d.start()
+    
+    
     
 
 
