@@ -3,9 +3,9 @@ from webhandler import*
 # parses the input test and determines a valid command
 
 
-app = ["open", "app", "application"]
+app = ["app", "application"]
 search = ["google", "bing", "search", "look up"]
-url = ["goto", "go to", "url", "website", "web"]
+url = ["open", "goto", "go to", "url", "website", "web"]
 mouseMove = ["move", "cursor"]
 mouseScroll = ["scroll", "up", "down"]
 mouseClick = ["click", "press"]
