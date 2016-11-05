@@ -14,4 +14,5 @@ Frameworks/downloads
 -Add Gui  
 -Increase speed of calls  
 -Open applications  
--Add ocr clicks   
+-Add ocr clicks  
+-Add cheatsheet of commands to readme  
