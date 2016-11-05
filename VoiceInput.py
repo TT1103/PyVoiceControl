@@ -40,4 +40,5 @@ except sr.RequestError as e:
     print(
         "Could not request results from Google Speech Recognition service; {0}".format(e))
 
+# passes it to textparser which finds appropriate commands
 GetCommand(text)
