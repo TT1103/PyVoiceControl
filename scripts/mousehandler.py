@@ -5,7 +5,7 @@ def Move(x,y):
     
     if x<0 or y<0 or x>xSize or y>ySize:
         return False
-    pyautogui.moveTo(x,y)
+    pyautogui.moveTo(x,y,0.25)
     
     
     
@@ -16,7 +16,7 @@ def DoubleClick():
     pyautogui.doubleClick()
     
 def MoveAndClick(x,y):
-    if Move(x,y):
+    pass
         
 def ScrollUp():
     pyautogui.scroll(2)

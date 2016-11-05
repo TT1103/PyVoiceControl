@@ -1,13 +1,16 @@
-import ocrhandler
+import ocrhandler,mousehandler
 
 def main():
-    t="shell"
+    t="View"
     filename = ".screenshot.png"
     img = ocrhandler.GetScreenShot(filename)
     s= ocrhandler.LocateText(img,t,filename)
         
-    print len(s)
-        
+    for x in s:
+        print x
+    
+   
+    mousehandler.Move(s[0][0], s[0][1])
         
     
     
