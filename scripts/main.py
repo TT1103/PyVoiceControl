@@ -72,8 +72,9 @@ def GetTextThread():
     #while True:
     #    if audioQueue:
     #        textQueue.append(VoiceInput.GetText(audioQueue.pop(0)).lower())
-    if audioQueue:
-        threading.Thread(target=GetTextHelper)
+    while True:
+        if audioQueue:
+            threading.Thread(target=GetTextHelper)
     
     
 def GetCommandThread():
