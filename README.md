@@ -11,7 +11,7 @@ Frameworks/downloads
 -pyautogui  
 
 ##TODO
--Add Gui 
--Increase speed of calls 
--Open applications 
--Add ocr clicks  
+-Add Gui  
+-Increase speed of calls  
+-Open applications  
+-Add ocr clicks   
