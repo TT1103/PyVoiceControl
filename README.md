@@ -6,7 +6,12 @@ Frameworks/downloads
 -PyAudio  
 -pip  
 -portaudio  
+-tesseract  
+-PIL  
+-pyautogui  
 
--tesseract
--PIL
--pyautogui
+##TODO
+-Add Gui 
+-Increase speed of calls 
+-Open applications 
+-Add ocr clicks  
