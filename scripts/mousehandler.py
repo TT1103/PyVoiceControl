@@ -14,12 +14,7 @@ def Click():
     
 def DoubleClick():
     pyautogui.doubleClick()
-    
-def MoveAndClick(x,y):
-    pass
+
         
-def ScrollUp():
-    pyautogui.scroll(2)
-        
-def ScrollDown():
-    pyautogui.scroll(-2)
+def Scroll(d):# 1 =down, -1 =up
+    pyautogui.scroll(-2*d)

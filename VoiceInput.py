@@ -9,6 +9,7 @@ import sys
 sys.path.insert(0, 'scripts')
 from textparser import*
 
+
 while(True):
     # obtain audio from the microphone
     r = sr.Recognizer()
@@ -25,8 +26,7 @@ while(True):
 
         # r.recognize_google(
         # audio,
-        # key="ya29.Ci-MA2OjZ4mBUqZS6RGtf3i8gUv0M_oLoc15xLHcf5xjbYLTjV0ZykDRYCfsukVEuQ")
-
+        # key="ya29.Ci-MA2OjZ4mBUqZS6RGtf3i8gUv0M_oLoc15xLHcf5xjbYLTjV0ZykDRYCfsukVEuQ")+
         text = "No Input"
         text = r.recognize_google(audio)
 
