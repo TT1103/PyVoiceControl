@@ -17,4 +17,4 @@ def DoubleClick():
 
         
 def Scroll(d):# 1 =down, -1 =up
-    pyautogui.scroll(-2*d)
+    pyautogui.scroll(-10*d)
