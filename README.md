@@ -1,1 +1,8 @@
-A python voice controller
+#A python voice controller
+
+##Tools we used
+Frameworks/downloads  
+-Gcloud  
+-PyAudio  
+-pip  
+-portaudio  

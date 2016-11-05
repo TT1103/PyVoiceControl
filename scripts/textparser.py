@@ -5,7 +5,12 @@ from webhandler import*
 
 def GetCommand(text):
 
-    if(text[0: 6] == "Google"):
+    inputArray = text.split()
+
+    if(inputArray[0] == "Google"):
         # run google script
-        GoogleSearch(text[7:])
+        GoogleSearch(text[len(inputArray[0]):])
+
+    elif(inputArray[0] == "Open"):
+
     pass
