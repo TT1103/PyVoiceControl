@@ -6,7 +6,7 @@ def OpenURL(url):
 
 
 def GoogleSearch(query):
-    webbrowser.open("https://google.ca/#q=" + str(query))
+    webbrowser.open("https://google.ca/#q=" + "+".join(query.strip().split()))
 
 
 def ImFeelingLuckySearch(query):

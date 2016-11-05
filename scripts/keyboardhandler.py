@@ -31,10 +31,6 @@ def TypeText(s):
     if VerifyKey(s):
         pyautogui.typewrite(s, interval =0.1)
     
-def PressKey(s):
-    if VerifyKey(s):
-        pyautogui.press(s)
-    
     
 def HoldKey(s):
     if VerifyKey(s):
