@@ -13,7 +13,7 @@ mouseDoubleClick = ["doublepress",
                     "doubleclick","double"]
 keyboardType = ["type", "input"]
 keyboardHold = ["hold"]
-keyboardRelease = ["release"]
+keyboardRelease = ["release","unhold"]
 
 '''
 Types:
@@ -60,7 +60,7 @@ def GetCommand(text):
             a = ["mouseDoubleClick", ""]
             break
         elif v in mouseMove:
-            pass
+            a =["mouseMove", " ".join(inputArray[x+1:])]
         elif v in keyboardType:
             a = ["keyboardType", " ".join(inputArray[x + 1:])]
             break

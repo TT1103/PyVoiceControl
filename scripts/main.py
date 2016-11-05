@@ -7,14 +7,11 @@ import webhandler
 import applicationhandler
 import threading
 import keyboardhandler
+import pyautogui
 
 audioQueue = []
 textQueue = []
 commandQueue=[]
-'''
-def GetContinuousAudio():
-    audioQueue.append(VoiceInput.GetVoice())
-'''
 
 
 def GetContinuousText(audio):
@@ -32,7 +29,15 @@ def RunCommand(com):
     elif c == "app":
         applicationhandler.OpenApp(v)
     elif c == "mouseMove":
-        pass
+        filename = ".screenshot.png"
+        img = ocrhandler.GetScreenShot(filename)
+        s= ocrhandler.LocateText(img,v,filename)
+
+        if s:
+            mousehandler.Move(s[0][0], s[0][1])
+        else:
+            print "\nNOT FOUND\n"
+
     elif c == "mouseClick":
         mousehandler.Click()
     elif c == "mouseDoubleClick":
@@ -72,38 +77,6 @@ def RunCommandThread():
         if commandQueue:
             RunCommand(commandQueue.pop(0))
 def main():
-    '''
-    t="View"
-    filename = ".screenshot.png"
-    img = ocrhandler.GetScreenShot(filename)
-    s= ocrhandler.LocateText(img,t,filename)
-
-    for x in s:
-        print x
-
-
-    mousehandler.Move(s[0][0], s[0][1])
-        '''
-    
-    '''
-    while (True):
-        #thread.start_new_thread(GetContinuousAudio, ())
-        audioQueue.append(VoiceInput.GetVoice())
-        if audioQueue:
-            #text = VoiceInput.GetText(audioQueue.pop(0)).lower()
-            thread.start_new_thread(GetContinuousText, (audioQueue.pop(0),))
-        if textQueue:
-
-            com = textparser.GetCommand(textQueue.pop(0))
-            if len(com) > 0:
-                RunCommand(com)
-'''
-    
-    
-    #thread.start_new_thread(GetAudioThread(),())
-    #thread.start_new_thread(GetTextThread(),())
-    #thread.start_new_thread(GetCommandThread(),())
-    #thread.start_new_thread(RunCommandThread(),())
     
     a = threading.Thread(target=GetAudioThread)
     b = threading.Thread(target=GetTextThread)
@@ -114,7 +87,7 @@ def main():
     b.start()
     c.start()
     d.start()
-
+    
 
 
 if __name__ == "__main__":
