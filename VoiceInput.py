@@ -4,6 +4,11 @@
 
 import speech_recognition as sr
 
+#import webhandler
+import sys
+sys.path.insert(0, 'scripts')
+from textparser import*
+
 
 # obtain audio from the microphone
 r = sr.Recognizer()
@@ -12,6 +17,7 @@ r = sr.Recognizer()
 with sr.Microphone() as source:
     print("Say something(I'm giving up on you): ")
     audio = r.listen(source)
+
 
 # recognize speech using Google Speech Recognition
 try:
@@ -23,11 +29,15 @@ try:
     # audio,
     # key="ya29.Ci-MA2OjZ4mBUqZS6RGtf3i8gUv0M_oLoc15xLHcf5xjbYLTjV0ZykDRYCfsukVEuQ")
 
+    text = "No Imput"
     text = r.recognize_google(audio)
 
+# TODO Remove
     print("Text: " + text)
 except sr.UnknownValueError:
     print("Engine could not process the speech")
 except sr.RequestError as e:
     print(
         "Could not request results from Google Speech Recognition service; {0}".format(e))
+
+GetCommand(text)
