@@ -47,7 +47,7 @@ while True:
                              outline="#7cdbd5", width=15, start=180 + i - 25, end=180 + i + 25)
 
     # TODO add in input text -------------------------------------------------
-
+    root.call('wm', 'attributes', '.', '-topmost', '1')
     canvas.after(20)
     canvas.update()
     
