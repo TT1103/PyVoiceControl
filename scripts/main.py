@@ -8,7 +8,7 @@ import applicationhandler
 
 audioQueue = []
 textQueue = []
-
+commandQueue=[]
 '''
 def GetContinuousAudio():
     audioQueue.append(VoiceInput.GetVoice())
@@ -48,6 +48,27 @@ def RunCommand(com):
         keyboardhandler.ReleaseKey(v)
 
 
+        
+def GetAudioThread():
+    while True:
+        audioQueue.append(VoiceInput.GetVoice())
+
+def GetTextThread():
+    while True:
+        if audioQueue:
+            textQueue.append(VoiceInput.GetText(audioQueue.pop(0)).lower())
+
+def GetCommandThread():
+    while True:
+        if textQueue:
+            com = textparser.GetCommand(textQueue.pop(0))
+            if len(com)>0:
+                commandQueue.append(com)
+                
+def RunCommandThread():
+    while True:
+        if commandQueue:
+            RunCommand(commandQueue.pop(0))
 def main():
     '''
     t="View"
@@ -61,6 +82,8 @@ def main():
 
     mousehandler.Move(s[0][0], s[0][1])
         '''
+    
+    '''
     while (True):
         #thread.start_new_thread(GetContinuousAudio, ())
         audioQueue.append(VoiceInput.GetVoice())
@@ -72,6 +95,14 @@ def main():
             com = textparser.GetCommand(textQueue.pop(0))
             if len(com) > 0:
                 RunCommand(com)
+'''
+    
+    
+    thread.start_new_thread(GetAudioThread(),())
+    thread.start_new_thread(GetTextThread(),())
+    thread.start_new_thread(GetCommandThread(),())
+    thread.start_new_thread(RunCommandThread(),())
+
 
 
 if __name__ == "__main__":
