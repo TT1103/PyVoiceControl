@@ -9,8 +9,8 @@ url = ["open", "goto", "go to", "url", "website", "web"]
 mouseMove = ["move", "cursor"]
 mouseScroll = ["scroll", "up", "down"]
 mouseClick = ["click", "press"]
-mouseDoubleClick = ["doubleclick",
-                    "double click", "double press", "doublepress"]
+mouseDoubleClick = ["doublepress",
+                    "doubleclick","double"]
 keyboardType = ["type", "input"]
 keyboardHold = ["hold"]
 keyboardRelease = ["release"]
@@ -42,7 +42,7 @@ def GetCommand(text):
         v = inputArray[x]
 
         if v in search:
-            a = ["search", " ".join(inputArray[x + 1:])]
+            a = ["search", " ".join(inputArray[x + 1:])  ]
             break
         elif v in url:
             a = ["url", " ".join(inputArray[x + 1:])]
@@ -50,8 +50,8 @@ def GetCommand(text):
         elif v in app:
             a = ["app", " ".join(inputArray[x + 1:])]
             break
-        elif v in mouseMove:
-            a = ["mouseMove", inputArray[x + 1]]
+        elif v in mouseScroll:
+            a = ["mouseScroll", inputArray[x + 1]]
             break
         elif v in mouseClick:
             a = ["mouseClick", ""]
