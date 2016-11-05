@@ -4,11 +4,9 @@ import time
 rotating = True
 root = tk.Tk()
 canvas = tk.Canvas(root, width=500, height=108, borderwidth=0,
-                   highlightthickness=0, bg="black")
+                   highlightthickness=0, bg="blue")
+# TODO change to black
 canvas.grid()
-
-# TODO
-#outputText = canvas.create_text(10, 10, anchor="nw")
 
 ws = root.winfo_screenwidth()
 #hs = root.winfo_screenheight()
@@ -40,9 +38,7 @@ while True:
     canvas.create_circle_arc(446, 54, 45, style="arc",
                              outline="#7cdbd5", width=15, start=180 + i - 25, end=180 + i + 25)
 
-    # TODO add in input text
-    #canvas.itemconfig(canvas_id, text="this is the text")
-    #canvas.insert(canvas_id, 12, "new ")
+    # TODO add in input text -------------------------------------------------
 
     canvas.after(20)
     canvas.update()
