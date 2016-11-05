@@ -6,3 +6,7 @@ Frameworks/downloads
 -PyAudio  
 -pip  
 -portaudio  
+
+-tesseract
+-PIL
+-pyautogui
