@@ -5,6 +5,7 @@ import textparser
 import thread
 import webhandler
 import applicationhandler
+import threading
 
 audioQueue = []
 textQueue = []
@@ -98,10 +99,20 @@ def main():
 '''
     
     
-    thread.start_new_thread(GetAudioThread(),())
-    thread.start_new_thread(GetTextThread(),())
-    thread.start_new_thread(GetCommandThread(),())
-    thread.start_new_thread(RunCommandThread(),())
+    #thread.start_new_thread(GetAudioThread(),())
+    #thread.start_new_thread(GetTextThread(),())
+    #thread.start_new_thread(GetCommandThread(),())
+    #thread.start_new_thread(RunCommandThread(),())
+    
+    a = threading.Thread(target=GetAudioThread)
+    b = threading.Thread(target=GetTextThread)
+    c = threading.Thread(target=GetCommandThread)
+    d = threading.Thread(target=RunCommandThread)
+    
+    a.start()
+    b.start()
+    c.start()
+    d.start()
 
 
 
