@@ -3,7 +3,7 @@ from webhandler import*
 # parses the input test and determines a valid command
 
 
-app = ["app", "application"]
+app = ["app", "application","launch"]
 search = ["google", "bing", "search", "look up"]
 url = ["open", "goto", "go to", "url", "website", "web"]
 mouseMove = ["move", "cursor"]

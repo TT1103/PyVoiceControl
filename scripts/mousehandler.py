@@ -13,7 +13,7 @@ def Click():
     pyautogui.click()
     
 def DoubleClick():
-    pyautogui.doubleClick()
+    pyautogui.doubleClick(interval=0.2)
 
         
 def Scroll(d):# 1 =down, -1 =up

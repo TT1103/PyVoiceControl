@@ -42,10 +42,9 @@ def LocateText(img, text, filename):
                 i += 1
             i += 1
             while data[i] != "<":
-                if len(s) > 0 and ord(s) < 128:
+                if ord(data[i]) < 128:
                     s += data[i]
                 i += 1
-
         if text in s or s in textSplit and len(c) == 4:
             coords.append([math.fabs((int(c[0]) + int(c[2])) / 4),
                            math.fabs((int(c[1]) + int(c[3])) / 4)])

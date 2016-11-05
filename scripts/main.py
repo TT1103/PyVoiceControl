@@ -46,10 +46,13 @@ def RunCommand(com):
         s= ocrhandler.LocateText(img,v,filename)
 
         if s:
-            for x in s:
-                mousehandler.Move(x[0], x[1])
-                if GetConfirmation():
-                    break
+            if len(s)==1:
+                mousehandler.Move(s[0][0], s[0][1])
+            else:
+                for x in s:
+                    mousehandler.Move(x[0], x[1])
+                    if GetConfirmation():
+                        break
         else:
             print "\nNOT FOUND\n"
             VoiceOutput.Say("Sorry, I'm not able to do that")
@@ -107,6 +110,8 @@ def RunCommandThread():
         if commandQueue:
             RunCommand(commandQueue.pop(0))
 def main():
+   
+    
     VoiceOutput.Say("I am ready to serve you master.")
     a = threading.Thread(target=GetAudioThread)
     b = threading.Thread(target=GetTextThread)
