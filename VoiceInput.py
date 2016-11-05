@@ -9,36 +9,34 @@ import sys
 sys.path.insert(0, 'scripts')
 from textparser import*
 
+while(True):
+    # obtain audio from the microphone
+    r = sr.Recognizer()
 
-# obtain audio from the microphone
-r = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Say something(I'm giving up on you): ")
+        audio = r.listen(source)
 
+    # recognize speech using Google Speech Recognition
+    try:
+        # for testing purposes, we're just using the default API key
+        # to use another API key, use `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
+        # instead of `r.recognize_google(audio)`
 
-with sr.Microphone() as source:
-    print("Say something(I'm giving up on you): ")
-    audio = r.listen(source)
+        # r.recognize_google(
+        # audio,
+        # key="ya29.Ci-MA2OjZ4mBUqZS6RGtf3i8gUv0M_oLoc15xLHcf5xjbYLTjV0ZykDRYCfsukVEuQ")
 
+        text = "No Input"
+        text = r.recognize_google(audio)
 
-# recognize speech using Google Speech Recognition
-try:
-    # for testing purposes, we're just using the default API key
-    # to use another API key, use `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
-    # instead of `r.recognize_google(audio)`
+    # TODO Remove
+        print("Text: " + text)
+    except sr.UnknownValueError:
+        print("Engine could not process the speech")
+    except sr.RequestError as e:
+        print(
+            "Could not request results from Google Speech Recognition service; {0}".format(e))
 
-    # r.recognize_google(
-    # audio,
-    # key="ya29.Ci-MA2OjZ4mBUqZS6RGtf3i8gUv0M_oLoc15xLHcf5xjbYLTjV0ZykDRYCfsukVEuQ")
-
-    text = "No Imput"
-    text = r.recognize_google(audio)
-
-# TODO Remove
-    print("Text: " + text)
-except sr.UnknownValueError:
-    print("Engine could not process the speech")
-except sr.RequestError as e:
-    print(
-        "Could not request results from Google Speech Recognition service; {0}".format(e))
-
-# passes it to textparser which finds appropriate commands
-GetCommand(text)
+    # passes it to textparser which finds appropriate commands
+    GetCommand(text)
