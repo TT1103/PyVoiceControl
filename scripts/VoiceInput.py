@@ -9,14 +9,15 @@ import sys
 sys.path.insert(0, '../')
 from textparser import*
 
+
 def GetVoice():
     r = sr.Recognizer()
-
 
     with sr.Microphone() as source:
         print("Say something: ")
         audio = r.listen(source)
     return audio
+
 
 def GetText(audio):
     r = sr.Recognizer()
