@@ -8,16 +8,28 @@ import applicationhandler
 import threading
 import keyboardhandler
 import pyautogui
+import VoiceOutput
 
 audioQueue = []
 textQueue = []
 commandQueue=[]
 
+affirm = ["yes","yeah","yep","hm"]
 
 def GetContinuousText(audio):
     textQueue.append(VoiceInput.GetText(audio).lower())
 
-
+def GetConfirmation():
+    VoiceOutput.Say("This one?")
+    a = VoiceInput.GetVoice()
+    t = VoiceInput.GetText(a)
+    for x in t.strip().split():
+        if x in affirm:
+            return True
+    return False
+        
+    
+    
 def RunCommand(com):
     c = com[0]
     v = com[1]
@@ -34,9 +46,13 @@ def RunCommand(com):
         s= ocrhandler.LocateText(img,v,filename)
 
         if s:
-            mousehandler.Move(s[0][0], s[0][1])
+            for x in s:
+                mousehandler.Move(x[0], x[1])
+                if GetConfirmation():
+                    break
         else:
             print "\nNOT FOUND\n"
+            VoiceOutput.Say("Sorry, I'm not able to do that")
 
     elif c == "mouseClick":
         mousehandler.Click()
@@ -53,6 +69,7 @@ def RunCommand(com):
         keyboardhandler.HoldKey(v)
     elif c == "keyboardRelease":
         keyboardhandler.ReleaseKey(v)
+
 
 
 
@@ -74,7 +91,8 @@ def GetTextThread():
     #        textQueue.append(VoiceInput.GetText(audioQueue.pop(0)).lower())
     while True:
         if audioQueue:
-            threading.Thread(target=GetTextHelper)
+            a=threading.Thread(target=GetTextHelper)
+            a.start()
     
     
 def GetCommandThread():
@@ -89,7 +107,7 @@ def RunCommandThread():
         if commandQueue:
             RunCommand(commandQueue.pop(0))
 def main():
-    
+    VoiceOutput.Say("I am ready to serve you master.")
     a = threading.Thread(target=GetAudioThread)
     b = threading.Thread(target=GetTextThread)
     c = threading.Thread(target=GetCommandThread)

@@ -1,4 +1,5 @@
 import pyautogui
+import VoiceOutput
 
 
 validKeys =['\t', '\n', '\r', ' ', '!', '"', '#', '$', '%', '&', "'", '(',
@@ -34,9 +35,12 @@ def TypeText(s):
 def HoldKey(s):
     if VerifyKey(s):
         pyautogui.keyDown(s)
+    else:
+        VoiceOutput.Say("Invalid Key")
     
 def ReleaseKey(s):
     if VerifyKey(s):
         pyautogui.keyUp(s)
-        
+    else:
+        VoiceOutput.Say("Invalid Key")   
         
