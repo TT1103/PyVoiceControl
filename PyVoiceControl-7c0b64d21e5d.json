@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "pyvoicecontrol",
+  "private_key_id": "7c0b64d21e5df7f7cff812faa6cabb772c76eca9",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDcgTYe2V7axHiX\nOkLXQEDo4WGpkQ+DrSI+0XRtLyIeO6DoqNufMscpp6qgtKG9SrhUODwk/RHLtt85\nUhyahwu2eqpnT+RJgC4JOzRISC5Rq4aP/RUuqVHrOxXWvV0mGzFJy9W//vFNC90c\nRpCFMBhUb4E6vDM5wgvBq6/HmuzqQn0Hitu+vNDx7u+Dbl5CO3Hai4IQIV8OFedf\nU+ttCXwfiTywbEdvoeqPXq0EB9lXa3AgXaPz7wG2lmLVI4SIVTmn01Vro285Kh2t\n7XZfDkr151EEm2y1pcdLtQl29M5FIAYPktZJFErZ0SyN+OkSDUTaEV8EpMvc22kw\n51uh8T5pAgMBAAECggEADDk5d9JS+MulZ7S6GdadAovj7xN0ibciS9sumhLf0E87\n50ndCuE0uzFpOwloYebvevO3GdHRl7pme3X60fIkixQXuCxsmkp5wtc+WbduoeZh\nSkAcWX7XZLPczQ+oR0GApPegvMj0NXIv6q5aupdk8eFQh6IBMPV5012iG+2Rrpaw\nm1BTymIj+txbY84bs3xgpHEJzpIlazk/OyQesUMuj5g/miZjLisy0Vki6rr6dy1Z\nVQMXqeKLWM2SQ5T89oHaA8EjxS9VSXu1l1QdQgpiqRj/mlVaCnX/JQRdqhChmK2q\na85G59kOJjmbZvEuCgQGJxb74NnVHSX8VshZULbbgQKBgQD4jE+FLDkAVhZdh1e0\nBjkgpxSIhKLQeCJcOpBmlT4AbgdWFmXD95dgsEgu1kwUlHG9HhDxl1c/hAlDwnpk\nS2GKy3In1cgGr2wMVgL/1YLlYMQ0WrR5rWl3OMF/dImGCjnnsvPn3D9bhSEhlBAP\nIYOtKgBIzzTQuWt/RVTeykBqGQKBgQDjHaifUBIzDGzzx2p7nXT0e0qQcDpG5Yez\nI/bCQvszV2VZOG6RPatXTzOBf/lFWYCIokvNtCqXeJlytEo9zG6bptCv/lmB/Son\n9cdUfd9XhqU2OBqk+E7Nbjz8fCl91Q7pMqUVB/+1G1ifMj2fTH117UqWravg/0gR\nC3HI8MOg0QKBgEEriS5CCjAsYnDjq/toJlKJfLjPDmHbHidQs8wyFa/HKeVIuiZI\nJUkU79hYGFrNEYWk/IxcQmRFGqjJtY3WthzOe4A2bdxS4uHZK7ApK8k5NjkED45Y\nCe9Y0mO5CtY6mDRIl+uTtIkqvyUuzYcqInylJq3wpsiT1bvpUfeY0IsBAoGBAJgO\ntWTkkSrIePHGY86bn0BIg6Ws3fe1mWMhAwcRHWpEa0CO/cgUR/FOv6dGbTg3Mk1I\njAQPSizbu7EGcGZrxupDh5kta/QR8fWLIoe5Np09MsPYUE5/SRNVaVOKNaVfznnn\nRIuOLW+t/Wmok4ViCuW3l6bGZDth73gp92aXfALhAoGBAOsivaf1MwhO3YX4nzJA\nn6uFDbM64Nxldr+rqdN8j04enKi6nbNyjXK6el+73G5QUrkNdDKYLva6FT+/lS6Q\nVBEHRoD1Pt49w5vQGwraWW7MwKdBQYXplwLris2Jp0hyDf+WJOQdqrTb5+LddoRi\n2cZeiuUDYXwBwdTD7i+dDsIK\n-----END PRIVATE KEY-----\n",
+  "client_email": "jonathan@pyvoicecontrol.iam.gserviceaccount.com",
+  "client_id": "113039706372588253552",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/jonathan%40pyvoicecontrol.iam.gserviceaccount.com"
+}
