@@ -1,10 +1,18 @@
 import Tkinter as tk
 import time
 
+rotating = True
 root = tk.Tk()
-canvas = tk.Canvas(root, width=200, height=200, borderwidth=0,
+canvas = tk.Canvas(root, width=500, height=108, borderwidth=0,
                    highlightthickness=0, bg="black")
 canvas.grid()
+
+# TODO
+#outputText = canvas.create_text(10, 10, anchor="nw")
+
+ws = root.winfo_screenwidth()
+#hs = root.winfo_screenheight()
+root.geometry('%dx%d+%d+%d' % (500, 108, ws - 500, 0))
 
 
 def _create_circle(self, x, y, r, **kwargs):
@@ -23,11 +31,19 @@ root.wm_title("PyVoiceControl")
 
 i = 0
 while True:
-    i += 5
-    canvas.create_circle(100, 120, 50, fill="blue", outline="#DDD", width=4)
-    canvas.create_circle_arc(100, 120, 45, style="arc",
-                             outline="#7cdbd5", width=15, start=270 + i - 25, end=270 + i + 25)
+    if(rotating):
+        i += 5
+    canvas.delete("all")
+    canvas.create_circle(446, 54, 50, fill="blue", outline="#DDD", width=4)
+    canvas.create_circle_arc(446, 54, 45, style="arc",
+                             outline="#7cdbd5", width=15, start=i - 25, end=+ i + 25)
+    canvas.create_circle_arc(446, 54, 45, style="arc",
+                             outline="#7cdbd5", width=15, start=180 + i - 25, end=180 + i + 25)
 
-    #root.after(500, ())
-    # time.sleep(0.025)
-    # root.mainloop()
+    # TODO add in input text
+    #canvas.itemconfig(canvas_id, text="this is the text")
+    #canvas.insert(canvas_id, 12, "new ")
+
+    canvas.after(20)
+    canvas.update()
+root.mainloop()
