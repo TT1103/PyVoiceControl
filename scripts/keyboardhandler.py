@@ -28,8 +28,7 @@ def VerifyKey(s):
     return s in validKeys
 
 def TypeText(s):
-    if VerifyKey(s):
-        pyautogui.typewrite(s, interval =0.1)
+    pyautogui.typewrite(s, interval =0.1)
     
     
 def HoldKey(s):
