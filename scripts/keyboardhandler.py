@@ -1,7 +1,7 @@
 import pyautogui
 import VoiceOutput
-
-
+import subprocess
+import time
 validKeys =['\t', '\n', '\r', ' ', '!', '"', '#', '$', '%', '&', "'", '(',
 ')', '*', '+', ',', '-', '.', '/', '0', '1', '2', '3', '4', '5', '6', '7',
 '8', '9', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`',
@@ -42,5 +42,13 @@ def ReleaseKey(s):
     if VerifyKey(s):
         pyautogui.keyUp(s)
     else:
-        VoiceOutput.Say("Invalid Key")   
+        VoiceOutput.Say("Invalid Key")
+
+def PlayMusic():
+    try:
+        subprocess.call(["open","-a","itunes"])
+        pyautogui.press("playpause")
+    except:
+        return
+    
         

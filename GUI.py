@@ -4,9 +4,16 @@ import time
 rotating = True
 root = tk.Tk()
 canvas = tk.Canvas(root, width=500, height=108, borderwidth=0,
-                   highlightthickness=0, bg="blue")
+                   highlightthickness=0, bg="#A6D785")
 # TODO change to black
 canvas.grid()
+
+frame = tk.Frame(root)
+frame.grid(row=0,column=0, sticky="n")
+
+v=tk.StringVar()
+label1=tk.Label(frame, textvariable=v,bg="#A6D785").grid(row=0,column=0, sticky="nw")
+v.set("hello")
 
 ws = root.winfo_screenwidth()
 #hs = root.winfo_screenheight()
@@ -28,6 +35,7 @@ tk.Canvas.create_circle_arc = _create_circle_arc
 root.wm_title("PyVoiceControl")
 
 i = 0
+
 while True:
     if(rotating):
         i += 5
@@ -42,4 +50,7 @@ while True:
 
     canvas.after(20)
     canvas.update()
+    
 root.mainloop()
+
+

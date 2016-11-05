@@ -15,6 +15,8 @@ keyboardType = ["type", "input"]
 keyboardHold = ["hold"]
 keyboardRelease = ["release","unhold"]
 
+music = ["play music"]
+
 '''
 Types:
 app
@@ -70,6 +72,10 @@ def GetCommand(text):
         elif v in keyboardRelease:
             a = ["keyboardRelease", inputArray[x + 1]]
             break
+        elif v +" "+ inputArray[x+1] in music:
+            a = ["music", "playpause"]
+            break
+            
 
     if len(a) == 0 and len(inputArray) > 0:
         if inputArray[-1] in mouseClick:

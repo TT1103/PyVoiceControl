@@ -44,7 +44,7 @@ def RunCommand(com):
         filename = ".screenshot.png"
         img = ocrhandler.GetScreenShot(filename)
         s= ocrhandler.LocateText(img,v,filename)
-
+        print s
         if s:
             if len(s)==1:
                 mousehandler.Move(s[0][0], s[0][1])
@@ -72,6 +72,8 @@ def RunCommand(com):
         keyboardhandler.HoldKey(v)
     elif c == "keyboardRelease":
         keyboardhandler.ReleaseKey(v)
+    elif c=="music":
+        keyboardhandler.PlayMusic()
 
 
 
@@ -122,8 +124,6 @@ def main():
     b.start()
     c.start()
     d.start()
-    
-    
     
 
 
