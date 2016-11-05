@@ -6,6 +6,7 @@ import thread
 import webhandler
 import applicationhandler
 import threading
+import keyboardhandler
 
 audioQueue = []
 textQueue = []
