@@ -4,11 +4,11 @@ from GUI import GUI
 # parses the input test and determines a valid command
 
 
-app = ["app", "application", "launch"]
-search = ["google", "bing", "search", "look up"]
-url = ["open", "goto", "go to", "url", "website", "web"]
-mouseMove = ["move", "cursor"]
-mouseScroll = ["scroll", "up", "down"]
+app = ["app", "application", "launch","launches","apps","applications"]
+search = ["google", "bing", "search", "look up","googles"]
+url = ["open", "goto", "go to", "url", "website", "web","opens"]
+mouseMove = ["move", "cursor","moves"]
+mouseScroll = ["scroll", "up", "down","scrolls"]
 mouseClick = ["click", "press"]
 mouseDoubleClick = ["doublepress",
                     "doubleclick", "double"]
