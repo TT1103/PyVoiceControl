@@ -40,7 +40,6 @@ def GetText(audio):
 
         GUI.UpdateGui(text)
 
-    # TODO Remove
         print("Text: " + text)
     except sr.UnknownValueError:
         GUI.UpdateGuiSpeed(False)

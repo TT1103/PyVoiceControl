@@ -52,7 +52,10 @@ def RunCommand(com):
         applicationhandler.OpenApp(v)
     elif c == "mouseMove":
         filename = ".screenshot.png"
+        t = GUI.v.get();
+        GUI.UpdateGui("")
         img = ocrhandler.GetScreenShot(filename)
+        GUI.UpdateGui(t)
         s = ocrhandler.LocateText(img, v, filename)
         print s
         if s:
@@ -110,7 +113,8 @@ def GetTextThread():
 def GetCommandThread():
     while True:
         if textQueue:
-            com = textparser.GetCommand(textQueue.pop(0))
+            p=textQueue.pop(0)
+            com = textparser.GetCommand(p)
             if len(com) > 0:
                 commandQueue.append(com)
 
@@ -128,7 +132,7 @@ def main():
     #--------------------------------------------
     gui = GUI()
 
-    VoiceOutput.Say("I am ready to serve you master.")
+    VoiceOutput.Say("How may I help you today?")
     a = threading.Thread(target=GetAudioThread)
     b = threading.Thread(target=GetTextThread)
     c = threading.Thread(target=GetCommandThread)
