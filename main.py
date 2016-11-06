@@ -1,3 +1,6 @@
+from GUI import GUI
+import sys
+sys.path.insert(0, 'scripts')
 import ocrhandler
 import mousehandler
 import VoiceInput
@@ -10,14 +13,21 @@ import keyboardhandler
 import pyautogui
 import VoiceOutput
 
+
 audioQueue = []
 textQueue = []
-commandQueue=[]
+commandQueue = []
+#-------------------------------------------
+affirm = ["yes", "yeah", "yep", "hm"]
 
-affirm = ["yes","yeah","yep","hm"]
+
+def getGui():
+    return gui
+
 
 def GetContinuousText(audio):
     textQueue.append(VoiceInput.GetText(audio).lower())
+
 
 def GetConfirmation():
     VoiceOutput.Say("This one?")
@@ -27,9 +37,8 @@ def GetConfirmation():
         if x in affirm:
             return True
     return False
-        
-    
-    
+
+
 def RunCommand(com):
     c = com[0]
     v = com[1]
@@ -43,10 +52,10 @@ def RunCommand(com):
     elif c == "mouseMove":
         filename = ".screenshot.png"
         img = ocrhandler.GetScreenShot(filename)
-        s= ocrhandler.LocateText(img,v,filename)
+        s = ocrhandler.LocateText(img, v, filename)
         print s
         if s:
-            if len(s)==1:
+            if len(s) == 1:
                 mousehandler.Move(s[0][0], s[0][1])
             else:
                 for x in s:
@@ -72,59 +81,59 @@ def RunCommand(com):
         keyboardhandler.HoldKey(v)
     elif c == "keyboardRelease":
         keyboardhandler.ReleaseKey(v)
-    elif c=="music":
+    elif c == "music":
         keyboardhandler.PlayMusic()
 
 
-
-
-        
 def GetTextHelper():
     if audioQueue:
         textQueue.append(VoiceInput.GetText(audioQueue.pop(0)).lower())
     return
 
-    
+
 def GetAudioThread():
     while True:
         audioQueue.append(VoiceInput.GetVoice())
 
-    
+
 def GetTextThread():
-    #while True:
+    # while True:
     #    if audioQueue:
     #        textQueue.append(VoiceInput.GetText(audioQueue.pop(0)).lower())
     while True:
         if audioQueue:
-            a=threading.Thread(target=GetTextHelper)
+            a = threading.Thread(target=GetTextHelper)
             a.start()
-    
-    
+
+
 def GetCommandThread():
     while True:
         if textQueue:
             com = textparser.GetCommand(textQueue.pop(0))
-            if len(com)>0:
+            if len(com) > 0:
                 commandQueue.append(com)
-                
+
+
 def RunCommandThread():
     while True:
         if commandQueue:
             RunCommand(commandQueue.pop(0))
+
+
 def main():
-   
-    
+
+    #--------------------------------------------
+    gui = GUI()
     VoiceOutput.Say("I am ready to serve you master.")
     a = threading.Thread(target=GetAudioThread)
     b = threading.Thread(target=GetTextThread)
     c = threading.Thread(target=GetCommandThread)
     d = threading.Thread(target=RunCommandThread)
-    
+
     a.start()
     b.start()
     c.start()
     d.start()
-    
 
 
 if __name__ == "__main__":
