@@ -25,8 +25,8 @@ Everything was programmed in Python. A simple script was used to handle mouse an
 -SpeechRecognition  
 
 
-##Things we would like to add in the future
--Optimize speech-to-text engine to work faster and in more varied environments in terms of "loudness"  
--Bundle all the frameworks and dependancies into a compiled package  
--Improve UI so that users can write and toggle their own commands
--Make the GUI less aggressive and automatically hidden unless triggered
+##Things we would like to add in the future   
+-Optimize speech-to-text engine to work faster and in more varied environments in terms of "loudness"   
+-Bundle all the frameworks and dependancies into a compiled package   
+-Improve UI so that users can write and toggle their own commands   
+-Make the GUI less aggressive and automatically hidden unless triggered   
