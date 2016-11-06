@@ -1,6 +1,7 @@
 from GUI import GUI
+import time
 import sys
-sys.path.insert(0,'scripts')
+sys.path.insert(0, 'scripts')
 import ocrhandler
 import mousehandler
 import VoiceInput
@@ -118,13 +119,15 @@ def RunCommandThread():
     while True:
         if commandQueue:
             RunCommand(commandQueue.pop(0))
+            time.sleep(.5)
+            GUI.UpdateGuiSpeed(False)
 
 
 def main():
 
     #--------------------------------------------
     gui = GUI()
- 
+
     VoiceOutput.Say("I am ready to serve you master.")
     a = threading.Thread(target=GetAudioThread)
     b = threading.Thread(target=GetTextThread)
@@ -135,7 +138,7 @@ def main():
     b.start()
     c.start()
     d.start()
-    
+
     gui.setup()
 
 

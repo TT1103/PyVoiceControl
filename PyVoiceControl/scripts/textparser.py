@@ -1,19 +1,20 @@
 from webhandler import*
+from GUI import GUI
 
 # parses the input test and determines a valid command
 
 
-app = ["app", "application","launch"]
+app = ["app", "application", "launch"]
 search = ["google", "bing", "search", "look up"]
 url = ["open", "goto", "go to", "url", "website", "web"]
 mouseMove = ["move", "cursor"]
 mouseScroll = ["scroll", "up", "down"]
 mouseClick = ["click", "press"]
 mouseDoubleClick = ["doublepress",
-                    "doubleclick","double"]
+                    "doubleclick", "double"]
 keyboardType = ["type", "input"]
 keyboardHold = ["hold"]
-keyboardRelease = ["release","unhold"]
+keyboardRelease = ["release", "unhold"]
 
 music = ["play music"]
 
@@ -44,7 +45,7 @@ def GetCommand(text):
         v = inputArray[x]
 
         if v in search:
-            a = ["search", " ".join(inputArray[x + 1:])  ]
+            a = ["search", " ".join(inputArray[x + 1:])]
             break
         elif v in url:
             a = ["url", " ".join(inputArray[x + 1:])]
@@ -62,7 +63,7 @@ def GetCommand(text):
             a = ["mouseDoubleClick", ""]
             break
         elif v in mouseMove:
-            a =["mouseMove", " ".join(inputArray[x+1:])]
+            a = ["mouseMove", " ".join(inputArray[x + 1:])]
         elif v in keyboardType:
             a = ["keyboardType", " ".join(inputArray[x + 1:])]
             break
@@ -72,14 +73,16 @@ def GetCommand(text):
         elif v in keyboardRelease:
             a = ["keyboardRelease", inputArray[x + 1]]
             break
-        elif v +" "+ inputArray[x+1] in music:
+        elif v + " " + inputArray[x + 1] in music:
             a = ["music", "playpause"]
             break
-            
 
     if len(a) == 0 and len(inputArray) > 0:
         if inputArray[-1] in mouseClick:
             a = ["mouseClick", ""]
         elif inputArray[-1] in mouseDoubleClick:
             a = ["mouseDoubleClick", ""]
+
+    if len(a) == 0:
+        GUI.UpdateGuiSpeed(False)
     return a
