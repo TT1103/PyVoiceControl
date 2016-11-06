@@ -32,6 +32,9 @@ def GetText(audio):
 
         text = "No Input"
         text = r.recognize_google(audio)
+#-------------------------------------------------------------------------
+        getGui().updateGui(text)
+        getGui().updateGuiSpeed(true)
 
     # TODO Remove
         print("Text: " + text)
