@@ -7,45 +7,44 @@ class GUI(object):
     i = 0
     v = None
     rotatingFast = False
-    canvas=None
-    frame =None
-    label1=None
-    root=None
+    canvas = None
+    frame = None
+    label1 = None
+    root = None
+
     def __init__(self):
-        
+
         GUI.root = tk.Tk()
 
         GUI.v = tk.StringVar()
 
         GUI.rotatingFast = False
         GUI.canvas = tk.Canvas(GUI.root, width=500, height=108, borderwidth=0,
-                                highlightthickness=0, bg="#A6D785")
+                               highlightthickness=0, bg="#d9ffb3")
 
         GUI.canvas.grid()
 
         GUI.frame = tk.Frame(GUI.root)
         GUI.frame.grid(row=0, column=0, sticky="n")
 
-        GUI.label1 = tk.Label(GUI.frame, textvariable=GUI.v, bg="#A6D785").grid(
+        GUI.label1 = tk.Label(GUI.frame, textvariable=GUI.v, bg="#d9ffb3").grid(
             row=0, column=0, sticky="nw")
         GUI.v.set("Hello!")
 
         ws = GUI.root.winfo_screenwidth()
         #hs = root.winfo_screenheight()
         GUI.root.geometry('%dx%d+%d+%d' % (500, 108, ws - 500, 0))
-        tk.Canvas.create_circle =self._create_circle
+        tk.Canvas.create_circle = self._create_circle
         tk.Canvas.create_circle_arc = self._create_circle_arc
 
         GUI.root.wm_title("PyVoiceControl")
         #thread = threading.Thread(target=self.runAnimationThread)
-        #thread.start()
-        
-        
+        # thread.start()
 
     def setup(self):
         self.runAnimationThread()
         GUI.root.mainloop()
-        
+
     def _create_circle(self, x, y, r, **kwargs):
         return GUI.canvas.create_oval(x - r, y - r, x + r, y + r, **kwargs)
 
@@ -68,17 +67,18 @@ class GUI(object):
     def runAnimationThread(self):
 
         if(GUI.rotatingFast):
-            GUI.i += 3
-        GUI.i += 3
+            GUI.i += 10
+        GUI.i += 1
+        GUI.i %= 360
         GUI.canvas.delete("all")
-        GUI.canvas.create_circle(446, 54, 50, fill="blue",
-                                  outline="#DDD", width=4)
+        GUI.canvas.create_circle(446, 54, 50, fill="#66b266",
+                                 outline="#DDD", width=4)
         GUI.canvas.create_circle_arc(446, 54, 45, style="arc",
-                                      outline="#7cdbd5", width=15, start=GUI.i - 25, end=+ GUI.i + 25)
+                                     outline="#408000", width=15, start=GUI.i - 25, end=+ GUI.i + 25)
         GUI.canvas.create_circle_arc(446, 54, 45, style="arc",
-                                      outline="#7cdbd5", width=15, start=180 + GUI.i - 25, end=180 + GUI.i + 25)
+                                     outline="#408000", width=15, start=180 + GUI.i - 25, end=180 + GUI.i + 25)
 
         # TODO add in input text ------------------------------------------
         GUI.root.call('wm', 'attributes', '.', '-topmost', '1')
-        GUI.canvas.after(20,self.runAnimationThread)
+        GUI.canvas.after(20, self.runAnimationThread)
         GUI.canvas.update()
