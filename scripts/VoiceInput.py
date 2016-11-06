@@ -8,6 +8,7 @@ import speech_recognition as sr
 import sys
 sys.path.insert(0, '../')
 from textparser import*
+from GUI import GUI
 
 
 def GetVoice():
@@ -33,8 +34,9 @@ def GetText(audio):
         text = "No Input"
         text = r.recognize_google(audio)
 #-------------------------------------------------------------------------
-        getGui().updateGui(text)
-        getGui().updateGuiSpeed(true)
+        
+        GUI.UpdateGui(text)
+        GUI.UpdateGuiSpeed(True)
 
     # TODO Remove
         print("Text: " + text)

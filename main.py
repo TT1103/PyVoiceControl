@@ -124,6 +124,7 @@ def main():
 
     #--------------------------------------------
     gui = GUI()
+ 
     VoiceOutput.Say("I am ready to serve you master.")
     a = threading.Thread(target=GetAudioThread)
     b = threading.Thread(target=GetTextThread)
@@ -134,6 +135,8 @@ def main():
     b.start()
     c.start()
     d.start()
+    
+    gui.setup()
 
 
 if __name__ == "__main__":
